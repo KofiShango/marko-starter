@@ -4,6 +4,7 @@ module.exports = (options) => {
   const project = options.project;
   const route = options.route;
   const out = options.out;
+  const request = options.req;
   const logger = project.getLogger();
   const path = options.path || route.path;
 
@@ -15,7 +16,8 @@ module.exports = (options) => {
       path,
       params: options.params || {},
       query: options.query || {},
-      metadata: route.metadata || {}
+      metadata: route.metadata || {},
+      request,
     };
 
     logger.info(`Building page ${path}...`);
